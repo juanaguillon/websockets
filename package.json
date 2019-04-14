@@ -1,0 +1,24 @@
+{
+  "name": "websockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass public/sass/main.sass -o public/css/main.css"
+  },
+  "author": "juan Ag",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.4",
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.11"
+  }
+}

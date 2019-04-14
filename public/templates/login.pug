@@ -1,0 +1,21 @@
+include general/header.pug
+
+section.section
+  .container
+    .columns
+      .column.is-half.is-offset-one-quarter
+        .box.login_box
+          h3.title.is-3.has-text-primary Ingresar
+          form
+            .field
+              label.label Email
+              .control
+                input.input#email_login(type="text",placeholdrer="Ingrese email")
+            .field
+              label.label Contraseña
+              .control
+                input.input#pass_login(type="text",placeholdrer="Ingrese contraseña")
+            .field.has-text-centered
+              input.has-text-weight-bold.button.is-primary#send_login(value="Ingresar",type="submit")
+
+include general/footer.pug
