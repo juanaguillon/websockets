@@ -2,7 +2,6 @@ const connection = require('./connection');
 
 const userModel = {
 
-  table : 'users',
 
   /**
    * Crear un nuevo usuario.
@@ -41,6 +40,27 @@ const userModel = {
 
     } ); // Final de query select email
 
+  },
+
+  /**
+   * Obtener un usuario por su email.
+   * Será usado en el login, y en caso de hacer solicitudes usando el email de el usuario.
+   * @param email Email a ser buscado
+   */
+  getUserByEmail: ( email, callback )=> {
+    
+    // Funcion a ser llamada en select Email
+    const selectQuery = function( err, data ){
+      if ( data.length == 0 ){
+        callback(err, 'no_results')
+      }else if( data.length > 0){
+        callback(err, 'results', data[0] );
+      }
+    }
+    
+    let sql = "SELECT * FROM users WHERE email = ?";
+    connection.query( sql, [email], selectQuery );
+    
   }
 }
 

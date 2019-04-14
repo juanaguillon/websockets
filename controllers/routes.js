@@ -23,5 +23,7 @@ app.get('/register', function (req, res) {
 
 // SECTION Registro de usuario.
 app.post('/register-form', routerFunctions.registerUser );
+// SECTION Login de usuario
+app.post('/login', routerFunctions.loginUser );
 
 module.exports = app;

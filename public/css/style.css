@@ -27,6 +27,10 @@
   display:none !important;
 }
 
+.p-relative{
+  position: relative !important;
+}
+
 
 .loading_spin_container{
   position: absolute;

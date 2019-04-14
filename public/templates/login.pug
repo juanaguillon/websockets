@@ -4,17 +4,24 @@ section.section
   .container
     .columns
       .column.is-half.is-offset-one-quarter
-        .box.login_box
+        .box.login_box#login_box.p-relative
+          .loading_spin_container.none
+            .loading_spin
+              div
           h3.title.is-3.has-text-primary Ingresar
-          form
+
+          article.message.none.is-danger
+            .message-body
+
+          form#login_form
             .field
               label.label Email
               .control
-                input.input#email_login(type="text",placeholdrer="Ingrese email")
+                input.input#email_login(type="email",placeholdrer="Ingrese email")
             .field
               label.label Contraseña
               .control
-                input.input#pass_login(type="text",placeholdrer="Ingrese contraseña")
+                input.input#pass_login(type="password",placeholdrer="Ingrese contraseña")
             .field.has-text-centered
               input.has-text-weight-bold.button.is-primary#send_login(value="Ingresar",type="submit")
 
