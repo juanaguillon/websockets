@@ -4,16 +4,23 @@ section.section
   .container
     .columns
       .column.is-half.is-offset-one-quarter
-        .box.register_box
+        .box.register_box#register_box
           h3.title.is-3.has-text-primary Registrar
           article.message.none.is-danger
             .message-body
-
+          
+          .loading_spin_container.none
+            .loading_spin
+              div
           form#register_form
             .field
               label.label Nombre
               .control
                 input.input#nombre_register(type="text",placeholdrer="Ingrese Nombre")
+            .field
+              label.label Apellido
+              .control
+                input.input#lastname_register(type="text",placeholdrer="Ingrese Apellido")
             .field
               label.label Email
               .control

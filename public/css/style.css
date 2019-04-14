@@ -1,3 +1,75 @@
-.none{
-  display:none;
+/* SECTION Animaciones */
+@keyframes loading_spin {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
+@-webkit-keyframes loading_spin {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* !SECTION */
+
+/* SECTION Estilos generales */
+
+.none{
+  display:none !important;
+}
+
+
+.loading_spin_container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+}
+
+.loading_spin {
+  position: relative;
+  width:100%;
+  height:100%
+}
+.loading_spin div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: 50px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #00d1b2 transparent #00d1b2 transparent;
+  -webkit-animation: loading_spin 2.2s linear infinite;
+  animation: loading_spin 2.2s linear infinite;
+}
+.loading_spin {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
+/* !SECTION */
+/* SECTION Formulario registro */
+
+.register_box{
+  position: relative;
+}
+
+/* !SECTION Final formulario registro */
