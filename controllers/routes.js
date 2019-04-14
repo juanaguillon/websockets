@@ -13,4 +13,9 @@ app.get('/register', function (req, res) {
   res.render('register')
 });
 
+app.post('/register-form', function( req, res ){
+  console.log( req.body );
+  res.send({stat:true});
+})
+
 module.exports = app;

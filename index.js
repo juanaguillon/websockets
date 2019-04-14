@@ -40,8 +40,6 @@ const socket = require('socket.io')( server );
 
 
 
-
-
 server.listen(8080, function( ){
   console.log('Escuchando puerto http://localhost:8080');
 })

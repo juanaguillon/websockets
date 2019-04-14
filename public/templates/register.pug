@@ -4,26 +4,29 @@ section.section
   .container
     .columns
       .column.is-half.is-offset-one-quarter
-        .box.login_box
+        .box.register_box
           h3.title.is-3.has-text-primary Registrar
-          form
+          article.message.none.is-danger
+            .message-body
+
+          form#register_form
             .field
               label.label Nombre
               .control
-                input.input#nombre_login(type="text",placeholdrer="Ingrese Nombre")
+                input.input#nombre_register(type="text",placeholdrer="Ingrese Nombre")
             .field
               label.label Email
               .control
-                input.input#email_login(type="text",placeholdrer="Ingrese email")
+                input.input#email_register(type="email",placeholdrer="Ingrese email")
             .field
               label.label Contraseña
               .control
-                input.input#pass_login(type="text",placeholdrer="Ingrese contraseña")
+                input.input#pass_register(type="password",placeholdrer="Ingrese contraseña")
             .field
               label.label Repetir Contraseña
               .control
-                input.input#rpass_login(type="text",placeholdrer="Repita contraseña")
+                input.input#rpass_register(type="password",placeholdrer="Repita contraseña")
             .field.has-text-centered
-              input.has-text-weight-bold.button.is-primary#send_login(value="Registrar",type="submit")
+              input.has-text-weight-bold.button.is-primary#send_register(value="Registrar",type="submit")
 
 include general/footer.pug
