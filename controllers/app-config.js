@@ -8,7 +8,7 @@ const session = require('express-session');
 app.use(express.static('public'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({ secret: 'secretcode1902', resave: false, saveUninitialized: true}))
+app.use(session({ secret: 'secretcode1902', resave: false, saveUninitialized: false, cookie: { secure: false }}))
 
 app.set('views', './public/templates');
 app.set('view engine', 'pug')

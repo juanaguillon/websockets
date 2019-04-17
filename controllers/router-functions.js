@@ -24,7 +24,7 @@ const routerFunctions = {
       }
     })
   },
-
+  // PATH: login
   loginUser:( req, res ) => {
     usermodel.getUserByEmail( req.body.email, ( err, message, data ) => {
       if ( err ) {
