@@ -4,7 +4,7 @@
 const app = require('./app-config');
 const routerFunctions = require('./router-functions');
 
-// ---- Simples Renders----
+// ---- SECTION Simples Renders----
 
 // Renderizar el inicio
 app.get('/', function (req, res) {
@@ -20,6 +20,31 @@ app.get('/login', function (req, res) {
 app.get('/register', function (req, res) {
   res.render('register')
 });
+
+// Renderizar el privado
+app.get('/private', function (req, res) {
+  if ( ! req.session.uid ) {
+    res.redirect('/login');
+    return;
+  }
+
+  // Enviar los datos el usuario actual.
+  let privateOptions = {
+    name: req.session.name,
+    uid: req.session.uid
+  }
+  res.render('private', privateOptions )
+});
+// !SECTION
+
+// ----- SECTION Peticiones get Simples
+
+app.get('/session-destroy',( req, res )=> {
+  req.session.destroy();
+  res.redirect('/login');
+})
+
+// !SECTION
 
 // SECTION Registro de usuario.
 app.post('/register-form', routerFunctions.registerUser );

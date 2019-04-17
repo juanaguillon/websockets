@@ -4,6 +4,7 @@
 
 /** Modelo usuario, funciones para llamar datos del servidor mysql. */
 const usermodel = require('../model/users.model');
+const session = require('express-session');
 const routerFunctions = {
 
   /** PATH: register-form */
@@ -41,13 +42,20 @@ const routerFunctions = {
           res.send({ stat: false, message: 'no_results' });
         }else if( data.password === req.body.password ){
           // Contraseñas idénticas
+          req.session.uid = data['id'];
+          req.session.name = data['name'];
+          req.session.lastname = data['lastname'];
+          req.session.email = data['email'];
+
           res.send({stat:true});
         }
-        
+
 
       }
     })
-  }
+  },
+
+
 }
 
 module.exports = routerFunctions;

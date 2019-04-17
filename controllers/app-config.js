@@ -3,10 +3,12 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 app.use(express.static('public'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ secret: 'secretcode1902', resave: false, saveUninitialized: true}))
 
 app.set('views', './public/templates');
 app.set('view engine', 'pug')

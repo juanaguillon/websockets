@@ -32,6 +32,9 @@ html(lang="en")
         .navbar-end
           .navbar-item
             .buttons
-              a.button.is-primary(href="/register")
-                strong Registrar
-              a.button.is-light(href="/login") Ingresar
+              if ! uid
+                a.button.is-primary(href="/register")
+                  strong Registrar
+                a.button.is-light(href="/login") Ingresar
+              else 
+                a.button.is-danger(href="/session-destroy") Cerrar Sesión

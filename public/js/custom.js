@@ -114,9 +114,7 @@ $('#login_form').submit( function( e ){
       success: function( e ){
         $('#login_box .loading_spin_container').addClass('none');
         if ( e.stat ){
-          $('#login_box article.message').removeClass('none is-danger');
-          $('#login_box article.message').addClass('is-success')
-          $('#login_box .message-body').html('Usuario existe actualmente');
+          window.location.href = '/private';
         }else if ( !e.stat && e.message == 'no_results' ){
           $('#login_box article.message').removeClass('none');
           $('#login_box .message-body').html('Usuario o contraseña incorrecta. Intente nuevamente.');
@@ -126,6 +124,6 @@ $('#login_form').submit( function( e ){
     })
   }
 
-
-  
 } )
+
+// !SECTION
