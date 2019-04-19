@@ -1,14 +1,54 @@
+// SECTION Funciones generales
+
+/**
+ * Number.prototype.format(n, x, s, c)
+ *
+ * @param integer n: length of decimal
+ * @param integer x: length of whole part
+ * @param mixed   s: sections delimiter
+ * @param mixed   c: decimal delimiter
+ */
+Number.prototype.format = function (n, x, s, c) {
+  var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+    num = this.toFixed(Math.max(0, ~~n));
+
+  return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+};
+
+function toggleSpinnerContainer( selector ){
+
+}
+
+// !SECTION
+
+// SECTION Ejecuciones generales
+
+
 $('.navbar-burger').click( function( ){
   $(".navbar-burger").toggleClass("is-active");
   $(".navbar-menu").toggleClass("is-active");
 })
 
-const exemail = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9]+$/;
 
-$('#navbarBasicExample .has-dropdown').click(function( ){
+$('.has-dropdown').click(function( ){
   $(this).toggleClass('is-active');
 });
 
+$('.file-input').change( function( e ){
+  var file = e.target.files[0] || null
+  if ( file && file.name != ''){
+    $(this).siblings('.file-name').text( file.name )
+
+  }else{
+    $(this).siblings('.file-name').text('Sin archivo')
+  }
+})
+
+
+
+// !SECTION
+
+const exemail = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9]+$/;
 // SECTION Formulario - Registro de usuario
 $('#register_form').submit( function( e ){
 
@@ -125,5 +165,51 @@ $('#login_form').submit( function( e ){
   }
 
 } )
+
+// !SECTION
+
+// SECTION Crear producto
+
+$('#create_product_form').submit( function( e ){
+  e.preventDefault();
+  $('#create_product_box .loading_spin_container').removeClass('none');
+  var name = $('#name_product').val()
+  var price = $('#price_product').val()
+  var desc = $('#desc_product').val()
+  var image = $('#image_product')[0].files[0];
+  if ( name == '' ){
+    $('#create_product_box .loading_spin_container').addClass('none');
+    $('#create_product_box article.message').removeClass('none')
+    $('#create_product_box .message-body').html('Debe proporcionar un mombre a el producto')
+  }else if ( price == ''){
+    $('#create_product_box .loading_spin_container').addClass('none');
+    $('#create_product_box article.message').removeClass('none')
+    $('#create_product_box .message-body').html('Debe proporcionar un precio a el producto')
+  }else{
+    console.log(image )
+    var formdata = new FormData();
+    formdata.append('name', name)
+    formdata.append('price', price)
+    formdata.append('desc', desc)
+    formdata.append('image', image)
+    $.ajax({
+      url: '/create-product',
+      type:'POST',
+      data: formdata,
+      cache: false,
+      processData: false, // important
+      contentType: false, // important
+      // data:{
+      //   name: name,
+      //   price: price,
+      //   desc:desc
+      // },
+      success: function( e ){
+        $('#create_product_box .loading_spin_container').addClass('none');
+        console.log( e );
+      }
+    })
+  }
+})
 
 // !SECTION

@@ -68,6 +68,12 @@
   -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
   transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
 }
+.has-dropdown > .navbar-dropdown{
+  display: none;
+}
+.has-dropdown.is-active > .navbar-dropdown{
+  display:block;
+}
 
 /* !SECTION */
 /* SECTION Formulario registro */

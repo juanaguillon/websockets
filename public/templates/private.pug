@@ -3,9 +3,51 @@ include general/header.pug
 .section.hero.is-dark#private_user
   .hero-body
     .container
-      h1.title= name
+      h1.title Usuario
       h2.subtitle Hola, modifica a tu gusto.
 
-
+section.section
+  .container
+    .columns.is-tablet
+      .column.is-8.is-offset-2
+        .box.p-relative#create_product_box
+          .loading_spin_container.none
+            .loading_spin
+              div
+          h3.title.has-text-black-ter Crea un producto
+          article.message.none.is-danger
+            .message-body
+          form#create_product_form
+            .field
+              label.label Nombre de producto
+              .control
+                input.input#name_product(type="text")
+            .field
+              label.label Precio de producto
+              .field.has-addons
+                .control
+                  a.button.is-static $
+                .control.is-expanded
+                  input.input#price_product(type="number")
+            .field
+              label.label Descripción
+              .field
+                .control
+                  textarea.textarea#desc_product
+            
+            .field
+              label.label Imagen
+              .file.has-name.is-fullwidth
+                label.file-label
+                  input#image_product.file-input(type='file', name="image")
+                  span.file-cta
+                    span.file-icon
+                      i.fas.fa-upload
+                    span.file-label
+                      | Escoger Archivo
+                  span.file-name
+                    | Sin archivo
+            .field.has-text-centered
+              input.button.is-success(type="submit", value="Crear Producto") 
 
 include general/footer.pug

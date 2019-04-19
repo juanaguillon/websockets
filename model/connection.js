@@ -1,13 +1,16 @@
 const mysql = require('mysql');
+const variables = require('../controllers/variables');
 
 /**
  * Crear conexión mysql.
  */
+
+
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: "websockets"
+  host: variables.DATABASE_HOST ,
+  user: variables.DATABASE_USER,
+  password: variables.DATABASE_UPASS,
+  database: variables.DATABASE_NAME
 });
 
 connection.connect( ( err )=>{

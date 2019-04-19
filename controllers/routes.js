@@ -23,10 +23,11 @@ app.get('/register', function (req, res) {
 
 // Renderizar el privado
 app.get('/private', function (req, res) {
-  if ( ! req.session.uid ) {
-    res.redirect('/login');
-    return;
-  }
+  // TODO Será ruta privada
+  // if ( ! req.session.uid ) {
+  //   res.redirect('/login');
+  //   return;
+  // }
 
   // Enviar los datos el usuario actual.
   let privateOptions = {
@@ -46,9 +47,12 @@ app.get('/session-destroy',( req, res )=> {
 
 // !SECTION
 
-// SECTION Registro de usuario.
+
+// Registro de usuario.
 app.post('/register-form', routerFunctions.registerUser );
-// SECTION Login de usuario
+// Login de usuario
 app.post('/login', routerFunctions.loginUser );
+// Crear producto ( Privado )
+app.post('/create-product',routerFunctions.createProduct );
 
 module.exports = app;
