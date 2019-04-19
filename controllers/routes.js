@@ -23,11 +23,10 @@ app.get('/register', function (req, res) {
 
 // Renderizar el privado
 app.get('/private', function (req, res) {
-  // TODO Será ruta privada
-  // if ( ! req.session.uid ) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if ( ! req.session.uid ) {
+    res.redirect('/login');
+    return;
+  }
 
   // Enviar los datos el usuario actual.
   let privateOptions = {

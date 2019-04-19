@@ -18,7 +18,6 @@ class functions {
    */
   uplaodImage( file, name , callback ){
     file.mv(this.getUploadedFolder() + name , function( err ) {
-      console.log( err );
       callback( err )
     } )
   }

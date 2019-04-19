@@ -75,7 +75,7 @@ const routerFunctions = {
       desc_prod: d.desc || null,
       registerat_prod: functions.getNow(),
       image_prod: 'default.jpg',
-      userid_prod: 10
+      userid_prod: req.session.uid
     }
 
     // Si existe la imágen, el nombre image_prod será remplazado, y se adiciona un numero único a esta imagen.
@@ -90,7 +90,6 @@ const routerFunctions = {
         res.send({stat:false, message:'server_error'})
       }else{
         if ( dataRet.affectedRows > 0 ){
-          console.log( files.image.name );
           functions.uplaodImage(files.image, actualID + files.image.name , function( err ){
             if ( err ){
               res.send({stat:true,message:'err_upload_file'})
