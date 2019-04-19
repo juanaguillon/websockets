@@ -219,12 +219,12 @@ $('#create_product_form').submit( function( e ){
 
         }else{
           if (e.message == 'err_upload_file'){
-            toggleMessage('#create_product_box', 'El producto se ha creado, pero la imágen no se ha logrado subir.', 'is-warning');
+            toggleMessage('#create_product_box', 'El producto se ha creado, pero la imagen no se ha logrado subir.', 'is-warning');
           } else if (e.message == 'product_created'){
-            toggleMessage('#create_product_box', 'El producto se ha creado, pero la imágen no se ha logrado subir.', 'is-success');
+            toggleMessage('#create_product_box', 'Producto creado correctamente.', 'is-success');
             
           }
-          $('#create_product_form').reset();
+          $('#create_product_form').trigger('reset');
         }
         
       }

@@ -1,0 +1,19 @@
+include general/header.pug
+
+
+section.section#product_section
+  .container
+    .columns.is-tablet
+      mixin convertCurrency( money )
+        span.has-text-grey-dark.has-text-weight-semibold.is-size-5=  accounting( money, accoptions )
+      each val in products
+        .column.is-3
+          .products
+            .product_inner
+              a.product_inner_link(href="product/" + val.id_prod)
+                img(src="images/" + val.image_prod)
+                h2.has-text-black.is-size-5.has-text-centered= val.name_prod
+                +convertCurrency( val.price_prod)
+
+
+include general/footer.pug

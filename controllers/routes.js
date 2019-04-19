@@ -3,6 +3,7 @@
 
 const app = require('./app-config');
 const routerFunctions = require('./router-functions');
+const renderFunctions = require('./router-renders');
 
 // ---- SECTION Simples Renders----
 
@@ -35,6 +36,11 @@ app.get('/private', function (req, res) {
   }
   res.render('private', privateOptions )
 });
+
+// Renderizad todos los productos
+
+app.get('/products', renderFunctions.getAllProducts );
+
 // !SECTION
 
 // ----- SECTION Peticiones get Simples
