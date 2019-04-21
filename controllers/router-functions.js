@@ -101,10 +101,7 @@ const routerFunctions = {
           res.send({ stat: false, message: 'server_error' })
         }
       }
-
-
     });
-
   }
 
 }

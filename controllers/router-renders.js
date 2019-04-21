@@ -17,6 +17,7 @@ const renders = {
             precision: 0,
             thousand: "."
           },
+          listensocket:true,
           accounting: accounting.formatMoney
           
         })

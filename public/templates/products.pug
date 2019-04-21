@@ -3,7 +3,7 @@ include general/header.pug
 
 section.section#product_section
   .container
-    .columns.is-tablet
+    .columns.is-tablet.products_container.is-multiline
       mixin convertCurrency( money )
         span.has-text-grey-dark.has-text-weight-semibold.is-size-5=  accounting( money, accoptions )
       each val in products

@@ -1,5 +1,8 @@
 // SECTION Funciones generales
 
+
+var socket = io.connect('http://localhost:8080', { forceNew: true })
+
 /**
  * Number.prototype.format(n, x, s, c)
  *
@@ -218,11 +221,11 @@ $('#create_product_form').submit( function( e ){
           toggleMessage('#create_product_box', 'Error al crear el producto. Intente nuevamente');
 
         }else{
+          socket.emit('create_product');
           if (e.message == 'err_upload_file'){
             toggleMessage('#create_product_box', 'El producto se ha creado, pero la imagen no se ha logrado subir.', 'is-warning');
           } else if (e.message == 'product_created'){
             toggleMessage('#create_product_box', 'Producto creado correctamente.', 'is-success');
-            
           }
           $('#create_product_form').trigger('reset');
         }
